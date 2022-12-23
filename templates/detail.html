@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bangui Tech , la plate-forme des informaticiens de la Centrafrique</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load static %}
+  <link  href="{% static 'img/favicon.png' %}" rel="icon">
+  <link  href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+
+  
+  <!-- Vendor CSS Files -->
+  <link  href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link  href="{% static 'css/list.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="/"><span>ARTISAN</span>COMPETENT</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar" style="font-family:'Times New Roman';">
+        <ul>
+          <li ><a class="nav-link scrollto active" href="/" ><span style="font-size:21px;">Accueil</span></a></li>
+          <li><a href="/blog"><span style="font-size:21px;">Actualités</span></a></li>
+          <li><a href="/liste/techniciens_par_catégories"><span style="font-size:21px;">Liste de nos techniciens par domaine d'activités</span></a></li>
+          <li><a class="nav-link scrollto" href="/contact"><span style="font-size:21px;">Contacter-nous</span></a></li></li>
+          <li><a class="nav-link scrollto" href="/admin/authentification"><span style="font-size:21px;">Se connecter</span></a></li></li>
+        </ul>
+        <i class="btn btn-primary bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+<br><br><br><br><br>
+    
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>{{technicien.categorie}},{{technicien.domaine}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- single-well start-->
+            <div class="col-md-4 col-sm-6 col-xs-6">
+              <div class="well-left">
+                <div class="single-well">
+                  <a href="#">
+                    <img src="{{ technicien.photo.url }}" alt="{{technicien.nom}}">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- single-well end-->
+            <div class="col-md-8 col-sm-6 col-xs-12" style="padding:0px 35px;">
+              <div class="well-middle">
+                <div class="single-well" >
+                  <h4 id="text" ><span id="titre">Nom:</span><span id="text">{{ technicien.nom }}</span></h4><br>
+                  <h4 id="text" ><span id="titre">Prénom :</span><span id="text">{{ technicien.prenom }}</span></h4><br>
+                  <h4 id="text" ><span id="titre">Niveau d'etude :</span><span id="text">{{ technicien.niveau }}</span></h4><br>
+                  <h4 id="text" ><span id="titre">Domaine d'activité :</span><span id="text">{{ technicien.domaine }}</span></h4><br>
+                  <h4 id="text" ><span id="titre">Expérience professionnelle :</span><br><br><span id="text">{{ technicien.experience }}</span></h4><br>
+                  <h4 id="text" ><span id="titre">Travaux déjà réalisés :</span><br><br><span id="text">{{ technicien.travaux_effectue }}</span></h4>
+                </div>
+              </div>
+            </div>
+            <!-- End col-->
+          </div>
+        </div>
+      </div><!-- End About Section -->
+  
+      <div class="container">
+        <div class="row">
+            <a href="/technicien/{{technicien.categorie}}" class="btn btn-success">Retour en arrière</a>
+          
+        </div>
+      </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <center>
+      <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h2><span>Artisan</span>Compétent</h2>
+                </div>
+                <p>Avec vous nous parviendrons à développer la Centrafrique.</p>
+                <a href="/faite un don" class="btn btn-warning">Faite un Don aux Développeurs</a>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="bi bi-facebook" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-twitter" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-instagram" style="color:orangered;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-linkedin" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-whatsapp" style="color:green;"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright <strong><span style="color:lightskyblue">Artisan</span><span>Compétent</span></strong>. All Rights Reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </center>
+    
+  </footer><!-- End  Footer -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

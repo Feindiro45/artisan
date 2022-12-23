@@ -1,0 +1,26 @@
+#for done image in data base use formula
+dans settings au niveau de static, insérer:
+""
+STATICFILES_DIRS =(os.path.join(BASE_DIR, 'static/'),)
+MEDIA_URL = 'nom_dossier/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'nom_dossier/')
+
+NB: n'oublier pas de verifier si import os figure 
+""
+
+dans urls du projet
+
+""
+from django.conf import settings
+from django.conf.urls.static import static
+
+après url:
+"
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)
+
+"
+
+
+""

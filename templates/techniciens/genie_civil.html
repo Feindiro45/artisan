@@ -1,0 +1,79 @@
+{% extends 'master.html' %}
+
+{% block contenu %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="section-headline text-center">
+        <h2>Domaine de Génie - Civil</h2>
+      </div>
+    </div>
+  </div>
+  <div id="team" class="our-team-area area-padding">
+    <div class="container">
+      <div class="row">
+        {% if technicien %}
+        {% for techniciens in technicien  %}
+
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="single-team-member">
+            <div class="team-img">
+              <a href="">
+                {% if techniciens.photo %}
+                <img src="{{ techniciens.photo.url}}" alt="{{ techniciens.nom }}">
+                {% else %}
+                <h5>Photo indisponible pour le moment</h5> 
+                {% endif %}
+                
+              </a>
+              <div class="team-social-icon text-center">
+                <a href="genie_civil/{{techniciens.id}}" class="btn btn-warning">Détail</a>
+                <a href="/contact" class="btn btn-primary">Contact</a>
+              </div>
+            </div>
+            <div class="team-content text-center">
+              <h4>{{ techniciens.nom }}</h4>
+              <p>{{ techniciens.domaine }}</p>
+              <a href="genie_civil/{{techniciens.id}}" class="btn btn-warning">Détail</a>
+              <a href="/contact" class="btn btn-primary">Contact</a>
+            </div>
+            
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="container">
+          <div class="row">
+            <h3 class="text-center">Nous sommes désolé car, il y'a pas de technicien actuellement pour ce domaine</h3>
+            <h4 class="text-center">Merci beaucoup!!!</h4>
+          </div>
+         </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-3 offset-md-5">
+      <ul class="pagination">
+        {% if technicien.has_previous %}
+           <li class="page-item">
+               <a href="?page={{ technicien.previous_page_number }}" class="page-link">Précédent</a>
+           </li>
+        {% endif %}
+         
+        <li class="page-item active">
+          <a href="?page={{ technicien.number }}" class="page-link">{{ technicien.number }}</a>
+        </li>
+
+        {% if technicien.has_next %}
+        <li class="page-item">
+            <a href="?page={{ technicien.next_page_number }}" class="page-link">Suivent</a>
+        </li>
+     {% endif %}
+      </ul>
+    </div>
+  </div>
+
+{% endblock  %}

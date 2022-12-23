@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>Bangui Tech , la plate-forme des informaticiens de la Centrafrique</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    {% load static %}
+    <link  href="{% static 'img/favicon.png' %}" rel="icon">
+    <link  href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+  
+    
+    <!-- Vendor CSS Files -->
+    <link  href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link  href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link  href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link  href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link  href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link  href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+
+<body>
+
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="/"><span>ARTISAN</span>COMPETENT</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar" style="font-family:'Times New Roman';">
+        <ul>
+          <li ><a class="nav-link scrollto active" href="/" ><span style="font-size:21px;">Accueil</span></a></li>
+          <li><a href="/blog"><span style="font-size:21px;">Actualités</span></a></li>
+          <li><a href="/liste/techniciens_par_catégories"><span style="font-size:21px;">Liste de nos techniciens par domaine d'activités</span></a></li>
+          <li><a class="nav-link scrollto" href="/contact"><span style="font-size:21px;">Contacter-nous</span></a></li></li>
+          <li><a class="nav-link scrollto" href="/admin/authentification"><span style="font-size:21px;">Se connecter</span></a></li></li>
+        </ul>
+        <i class="btn btn-primary bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+<br><br><br><br><br><br>
+<div class="container">
+  <h1 class="title2" style="font-family:'Times New Roman';"><marquee behavior="" direction="">les nouvelles actualités </marquee></h1>
+</div>
+    <!-- ======= Blog Page ======= -->
+    <div class="blog-page area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="row">
+              {% if blog %}
+              {% for blogs  in blog  %}
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <!-- single-blog start -->
+                <article class="blog-post-wrapper">
+                  <div class="post-thumbnail">
+                    {% if blogs.photo %}
+                    <img src="{{ blogs.photo.url}}" alt="{{ blogs.titre }}" />
+                    {% else %}
+                       <h2>l'image n'est pas disponible pour le moment</h2>
+                    {% endif %}
+                  </div>
+                  <div class="post-information">
+                    <h2>{{ blogs.titre }}</h2>
+                    <div class="entry-meta">
+                      <span class="author-meta"><i class="bi bi-person"></i> <a href="#">admin</a></span>
+                      <span><i class="bi bi-clock"></i>{{blogs.date}}</span>
+                    </div>
+                    <div class="entry-content">
+                      <p>{{ blogs.description }}.</p>
+                 </div>
+                  </div>
+                  <a href="/contact" class="btn btn-secondary">Contacter-nous</a>
+                </article><br>
+               
+                 
+                </div>
+                <!-- single-blog end -->
+              </div>
+              
+              
+              {% endfor %}
+              {% else %}
+                
+              <div class="container">
+                <div class="row">
+                  <h3 class="text-center">Nous sommes désolé car, il y'a pas d'actualité pour le moment</h3>
+                  <h4 class="text-center">Merci beaucoup!!!</h4>
+                </div>
+               </div>
+              {% endif %}
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-3 offset-md-4">
+                <ul class="pagination">
+                  {% if blog.has_previous %}
+                     <li class="page-item">
+                         <a href="?page={{ blog.previous_page_number }}" class="page-link">Précédent</a>
+                     </li>
+                  {% endif %}
+                   
+                  <li class="page-item active">
+                    <a href="?page={{ blog.number }}" class="page-link">{{ blog.number }}</a>
+                  </li>
+
+                  {% if blog.has_next %}
+                  <li class="page-item">
+                      <a href="?page={{ blog.next_page_number }}" class="page-link">Suivent</a>
+                  </li>
+               {% endif %}
+                </ul>
+              </div>
+    </div><!-- End Blog Page -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <center>
+      <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h2><span>Artisan</span>Compétent</h2>
+                </div>
+                <p>Avec vous nous parviendrons à développer la Centrafrique.</p>
+                <a href="/faite un don" class="btn btn-warning">Faite un Don aux Développeurs</a>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="bi bi-facebook" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-twitter" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-instagram" style="color:orangered;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-linkedin" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-whatsapp" style="color:green;"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright <strong><span style="color:lightskyblue">Artisan</span><span>Compétent</span></strong>. All Rights Reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </center>
+    
+  </footer><!-- End  Footer -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

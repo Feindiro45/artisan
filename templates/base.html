@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Artisan-Compétent</title>
+  <meta  name="description" content="la plate-forme des qui vous propose des professionnels pour la réalisation de vos tâches selon le domaine de votre choix">
+  <meta  name="keywords" content="artisan-compétent, recherche emploie, travail, professionnels, réalisation des tâches">
+
+  <!-- Favicons -->
+  {% load static %}
+  <link  href="{% static 'img/favicon.png' %}" rel="icon">
+  <link  href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+
+  
+  <!-- Vendor CSS Files -->
+  <link  href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link  href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="/"><span style="font-family:'Times New Roman';">ARTISAN</span>COMPETENT</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar" style="font-family:'Times New Roman';">
+        <ul>
+          <li ><a class="nav-link scrollto active" href="/" ><span style="font-size:21px;">Accueil</span></a></li>
+          <li><a href="/blog"><span style="font-size:21px;">Actualités</span></a></li>
+          <li><a href="/liste/techniciens_par_catégories"><span style="font-size:21px;">Liste de nos techniciens par domaine d'activités</span></a></li>
+          <li><a class="nav-link scrollto" href="/contact"><span style="font-size:21px;">Contacter-nous</span></a></li></li>
+          <li><a class="nav-link scrollto" href="/admin/authentification"><span style="font-size:21px;">Se connecter</span></a></li></li>
+        </ul>
+        <i class="btn btn-primary bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+               {% for products2  in product2 %}
+               <div class="carousel-item active" style="background-image: url({{ products2.image.url }}) ">
+                <div class="carousel-container">
+                  <div class="container">
+                    <h2 class="animate__animated animate__fadeInDown" style="color:white; font-family:'Times New Roman';font-size:35px;">{{ products2.titre1 }}</h2>
+                    <p class="animate__animated animate__fadeInUp" style="font-family:'Times New Roman';">{{ products2.titre2 }}.</p>
+                    <a href="/contact" class="btn-get-started scrollto animate__animated animate__fadeInUp">Contacter-nous</a>
+                  </div>
+                </div>
+              </div>
+               {% endfor %}
+          
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <div id="about" class="about-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2 style="color:black; font-family:'Times New Roman';">C'est quoi Artisan Compétent ? </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- single-well start-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-left">
+              <div class="single-well">
+                <a href="#">
+                    {% for products1 in product1  %}
+                  <img src="{{ products1.image.url }}" alt="{{ products1.name }}">
+                    {% endfor %}
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- single-well end-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <a href="#">
+                  <h3 class="sec-head" style="color:black; font-family:'Times New Roman';">Quelques clarifications</h3>
+                </a>
+                <p><span style="color:lightskyblue; font-size:25px; font-family:'Times New Roman';">Artisan</span><span style="font-size:25px;">Compétent</span> est une plate-forme, où vous pouvez rapidement trouvez des techniciens et professionnels pour vous aidez dans l'accomplissement de vos bésoins ou tâches  dans plusieurs domaines:</p>
+                <ul style="color:black; font-family:'Times New Roman'; font-size:19px;">
+                  <li>
+                    <i class="bi bi-check"></i>Informatique(création des sites web, maintenance des ordinateurs,Infographie, montage vidéo, installation des réseaux informatique....etc)
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Plombérie
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Génie Civil
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Electricité
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Agriculture
+                  </li>
+                   <li>
+                    <i class="bi bi-check"></i> Logistique
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Comptabilité
+                  </li>
+                  <li>
+                    <i class="bi bi-check"></i> Etc......
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End col-->
+        </div>
+      </div>
+    </div><!-- End About Section -->
+
+   
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div >
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2 style="color:black; font-family:'Times New Roman';">Les Menbres de la direction d'Artisan Compétent</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="testimonials" class="testimonials">
+          <div class="container">
+    
+            <div class="testimonials-slider swiper">
+              <div class="swiper-wrapper">
+          {% for products3 in product3 %}
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <img src="{{ products3.photo.url }}" alt="{{ products3.name }}" class="testimonial-img" style="width: 250px;height: 250px;">
+                      <h3>{{ products3.name }}</h3>
+                      <h4>{{ products3.fonction }}</h4>
+                      <p>{{ products3.domaine }}</p>
+                    </div>
+                    <div class="team-content text-center">
+                      <a href="{{ products3.whatsapp }}" class="btn btn-success"><i class="bi bi-whatsapp"></i></a>
+                      <a href="{{ products3.facebook }}" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                      <a href="{{ products3.phone }}" class="btn btn-secondary"><i class="bi bi-phone"></i></a>
+                    </div>
+                  </div><!-- End testimonial item -->
+          {% endfor %}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </div><!-- End Testimonials Section -->
+          <!-- End column -->
+        </div>
+      </div>
+    </div><!-- End Team Section -->
+
+
+    <!-- ======= Blog Section ======= -->
+    <div id="blog" class="blog-area">
+      <div class="blog-inner area-padding">
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2 style="color:black; font-family:'Times New Roman';">Dernières publications</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            
+            {% for products in product  %}
+               
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="single-blog">
+                  <div class="single-blog-img">
+                    <a href="/blog">
+                      <img src="{{ products.image.url}}" alt="">
+                    </a>
+                  </div>
+                  <div class="blog-meta">
+                    <span class="date-type">
+                      <i class="bi bi-person"></i>Publié par:{{products.par}}
+                      <i class="bi bi-clock"></i>{{products.date}}
+                    </span>
+                  </div>
+                  <div class="blog-text">
+                    <h4>
+                      <a href="/blog"><span style="color:black; font-family:'Times New Roman';">{{ products.name }}</span></a>
+                    </h4>
+                    <p>{{ products.description }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div><br><br>
+            <div class="row mt-3">
+              <div class="col-md-3 offset-md-5">
+                <ul class="pagination">
+                  {% if product.has_previous %}
+                     <li class="page-item">
+                         <a href="?page={{ product.previous_page_number }}" class="page-link">Précédent</a>
+                     </li>
+                  {% endif %}
+                   
+                  <li class="page-item active">
+                    <a href="?page={{ product.number }}" class="page-link">{{ product.number }}</a>
+                  </li>
+
+                  {% if product.has_next %}
+                  <li class="page-item">
+                      <a href="?page={{ product.next_page_number }}" class="page-link">Suivent</a>
+                  </li>
+               {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Blog Section -->
+
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <center>
+      <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h1 style="font-family:'Times New Roman';"><span style="color:lightskyblue;">Artisan</span>Compétent</h1>
+                </div>
+                <p>Avec vous nous parviendrons à développer la Centrafrique.</p>
+                <a href="/faite un don" class="btn btn-warning">Faite un Don aux Développeurs</a>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="bi bi-facebook" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-twitter" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-instagram" style="color:orangered;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-linkedin" style="color:blue;"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="bi bi-whatsapp" style="color:green;"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                <strong><span style="color:lightskyblue">Artisan</span><span>Compétent</span></strong>. Tous droits réservés
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </center>
+    
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
